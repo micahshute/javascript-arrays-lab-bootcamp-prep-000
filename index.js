@@ -12,6 +12,12 @@ function destructivelyAppendKitten(name){
   return window.kittens
 }
 
+function destructivelyPrependKitten(name){
+  window.kittens = restoreKittens()
+  window.kittens.unshift(name)
+  return window.kittens
+}
+
 function destructivelyRemoveLastKitten(){
   window.kittens = restoreKittens()
   window.kittens.pop()
@@ -25,5 +31,21 @@ function destructivelyRemoveFirstKitten(){
 }
 
 function appendKitten(name){
-  
+  window.kittens = restoreKittens()
+  return [...window.kittens, name]
+}
+
+function prependKitten(name){
+  window.kittens = restoreKittens()
+  return [name, ...window.kittens]
+}
+
+function removeLastKitten(){
+  window.kittens = restoreKittens()
+  return window.kittens.slice(0,window.kittens.length - 1)
+}
+
+function removeFirstKitten(){
+  window.kittens = restoreKittens()
+  return window.kittens.slice(1)
 }
